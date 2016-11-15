@@ -111,21 +111,20 @@ modify three of them. Here is what they are and what you should do:
  rest of the instructions and also capture all necessary statistics. 
  - [x] **main.cpp** contains the main routine and parses command-line 
  arguments which may be helpful in debugging:
-   * -p dumps the parsed program at the start of the simulation.
-   * -d dumps the contents of data memory (all non-zero data memory entries) and the register file after the end of the simulation.
-   * -i prints every instruction as it executes.
-   * -w prints every write to data memory.
-   * -s prints statistics at the end of the program.
-   * -c # (fill in # with a size in bytes) enables caches of size #. For this assignment, -c 256 is probably most appropriate.
-   * -f simfilename runs the sim file specified. This option must be specified.
-  You should not have to change this file.
-  - [x] **parse.cpp** parses the sim file. You shouldn't need to change it.
-  - [ ] **thumbsim\_driver.cpp** (and thumbsim.hpp) contain the core data 
+  * -p dumps the parsed program at the start of the simulation.
+  * -d dumps the contents of data memory (all non-zero data memory entries) and the register file after the end of the simulation.
+  * -i prints every instruction as it executes.
+  * -w prints every write to data memory.
+  * -s prints statistics at the end of the program.
+  * -c # (fill in # with a size in bytes) enables caches of size #. For this assignment, -c 256 is probably most appropriate.
+  * -f simfilename runs the sim file specified. This option must be specified.
+    You should not have to change this file.
+ - [x] **parse.cpp** parses the sim file. You shouldn't need to change it.
+ - [ ] **thumbsim\_driver.cpp** (and thumbsim.hpp) contain the core data 
   structures. You should only need to change one routine in this file, 
   Cache::access, which currently returns a cache miss (false) for every cache 
   access. You will need to enter tags into the cache ("entries") on a miss 
   and check tags on every access.
-
 
 If you call "thumbsim -c 256" the system automatically instantiates several 
   caches: 256B, 4-byte cache lines; 256B, 8-byte cache lines, etc. 

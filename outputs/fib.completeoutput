@@ -1,0 +1,253 @@
+Starting at PC 83ec
+push {r7, lr}
+sub sp, #16
+add r7, sp, #0
+movs r3, #0
+str r3, [r7, #12]
+movs r3, #1
+str r3, [r7, #8]
+movs r3, #0
+str r3, [r7, #4]
+movs r3, #0
+str r3, [r7, #0]
+b 0x841a
+ldr r3, [r7, #0]
+cmp r3, #9
+ble 0x8404
+ldr r2, [r7, #12]
+ldr r3, [r7, #8]
+adds r3, r2, r3
+str r3, [r7, #4]
+ldr r3, [r7, #8]
+str r3, [r7, #12]
+ldr r3, [r7, #4]
+str r3, [r7, #8]
+ldr r3, [r7, #0]
+adds r3, #1
+str r3, [r7, #0]
+ldr r3, [r7, #0]
+cmp r3, #9
+ble 0x8404
+ldr r2, [r7, #12]
+ldr r3, [r7, #8]
+adds r3, r2, r3
+str r3, [r7, #4]
+ldr r3, [r7, #8]
+str r3, [r7, #12]
+ldr r3, [r7, #4]
+str r3, [r7, #8]
+ldr r3, [r7, #0]
+adds r3, #1
+str r3, [r7, #0]
+ldr r3, [r7, #0]
+cmp r3, #9
+ble 0x8404
+ldr r2, [r7, #12]
+ldr r3, [r7, #8]
+adds r3, r2, r3
+str r3, [r7, #4]
+ldr r3, [r7, #8]
+str r3, [r7, #12]
+ldr r3, [r7, #4]
+str r3, [r7, #8]
+ldr r3, [r7, #0]
+adds r3, #1
+str r3, [r7, #0]
+ldr r3, [r7, #0]
+cmp r3, #9
+ble 0x8404
+ldr r2, [r7, #12]
+ldr r3, [r7, #8]
+adds r3, r2, r3
+str r3, [r7, #4]
+ldr r3, [r7, #8]
+str r3, [r7, #12]
+ldr r3, [r7, #4]
+str r3, [r7, #8]
+ldr r3, [r7, #0]
+adds r3, #1
+str r3, [r7, #0]
+ldr r3, [r7, #0]
+cmp r3, #9
+ble 0x8404
+ldr r2, [r7, #12]
+ldr r3, [r7, #8]
+adds r3, r2, r3
+str r3, [r7, #4]
+ldr r3, [r7, #8]
+str r3, [r7, #12]
+ldr r3, [r7, #4]
+str r3, [r7, #8]
+ldr r3, [r7, #0]
+adds r3, #1
+str r3, [r7, #0]
+ldr r3, [r7, #0]
+cmp r3, #9
+ble 0x8404
+ldr r2, [r7, #12]
+ldr r3, [r7, #8]
+adds r3, r2, r3
+str r3, [r7, #4]
+ldr r3, [r7, #8]
+str r3, [r7, #12]
+ldr r3, [r7, #4]
+str r3, [r7, #8]
+ldr r3, [r7, #0]
+adds r3, #1
+str r3, [r7, #0]
+ldr r3, [r7, #0]
+cmp r3, #9
+ble 0x8404
+ldr r2, [r7, #12]
+ldr r3, [r7, #8]
+adds r3, r2, r3
+str r3, [r7, #4]
+ldr r3, [r7, #8]
+str r3, [r7, #12]
+ldr r3, [r7, #4]
+str r3, [r7, #8]
+ldr r3, [r7, #0]
+adds r3, #1
+str r3, [r7, #0]
+ldr r3, [r7, #0]
+cmp r3, #9
+ble 0x8404
+ldr r2, [r7, #12]
+ldr r3, [r7, #8]
+adds r3, r2, r3
+str r3, [r7, #4]
+ldr r3, [r7, #8]
+str r3, [r7, #12]
+ldr r3, [r7, #4]
+str r3, [r7, #8]
+ldr r3, [r7, #0]
+adds r3, #1
+str r3, [r7, #0]
+ldr r3, [r7, #0]
+cmp r3, #9
+ble 0x8404
+ldr r2, [r7, #12]
+ldr r3, [r7, #8]
+adds r3, r2, r3
+str r3, [r7, #4]
+ldr r3, [r7, #8]
+str r3, [r7, #12]
+ldr r3, [r7, #4]
+str r3, [r7, #8]
+ldr r3, [r7, #0]
+adds r3, #1
+str r3, [r7, #0]
+ldr r3, [r7, #0]
+cmp r3, #9
+ble 0x8404
+ldr r2, [r7, #12]
+ldr r3, [r7, #8]
+adds r3, r2, r3
+str r3, [r7, #4]
+ldr r3, [r7, #8]
+str r3, [r7, #12]
+ldr r3, [r7, #4]
+str r3, [r7, #8]
+ldr r3, [r7, #0]
+adds r3, #1
+str r3, [r7, #0]
+ldr r3, [r7, #0]
+cmp r3, #9
+ble 0x8404
+ldr r3, [r7, #4]
+adds r0, r3, #0
+mov sp, r7
+add sp, #16
+pop {r7, pc}
+DATA:
+ffffffe8: a
+ffffffec: 59
+fffffff0: 59
+fffffff4: 37
+104ac: 83b8
+104b0: 8390
+104b8: 1
+104bc: 1
+104c0: c
+104c4: 8274
+104c8: d
+104cc: 8494
+104d0: 19
+104d4: 104ac
+104d8: 1b
+104dc: 4
+104e0: 1a
+104e4: 104b0
+104e8: 1c
+104ec: 4
+104f0: 6ffffef5
+104f4: 818c
+104f8: 5
+104fc: 81f0
+10500: 6
+10504: 81b0
+10508: a
+1050c: 3c
+10510: b
+10514: 10
+10518: 15
+10520: 3
+10524: 105a0
+10528: 2
+1052c: 18
+10530: 14
+10534: 11
+10538: 17
+1053c: 825c
+10540: 11
+10544: 8254
+10548: 12
+1054c: 8
+10550: 13
+10554: 8
+10558: 6ffffffe
+1055c: 8234
+10560: 6fffffff
+10564: 1
+10568: 6ffffff0
+1056c: 822c
+105a0: 104b8
+105ac: 8280
+105b0: 8280
+105b4: 8280
+RF:
+59
+0
+22
+59
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Total number of dynamic instructions: 160
+Number of Memory Reads: 64
+Number of Memory Writes: 46
+Number of Register Reads: 371
+Number of Register Writes: 266
+Branches: 
+  Forward:
+    Taken: 0
+    Not taken: 0
+  Backward:
+    Taken: 10
+    Not taken: 1
+256 byte cache (blocksize 4 bytes): 104 hits, 6 misses (hit rate: 94.5455%)
+256 byte cache (blocksize 8 bytes): 107 hits, 3 misses (hit rate: 97.2727%)
+256 byte cache (blocksize 16 bytes): 108 hits, 2 misses (hit rate: 98.1818%)
+256 byte cache (blocksize 32 bytes): 109 hits, 1 misses (hit rate: 99.0909%)
+256 byte cache (blocksize 64 bytes): 109 hits, 1 misses (hit rate: 99.0909%)
+256 byte cache (blocksize 128 bytes): 109 hits, 1 misses (hit rate: 99.0909%)
+256 byte cache (blocksize 256 bytes): 109 hits, 1 misses (hit rate: 99.0909%)
