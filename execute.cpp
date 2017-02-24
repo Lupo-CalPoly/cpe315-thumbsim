@@ -12,8 +12,8 @@
 Stats stats;
 Caches caches(0);
 
-// CPE 315: you'll need to implement some custom sign-extension functions
-// in addition to the ones given below, particularly for the unconditional
+// CPE 315: you'll need to implement a custom sign-extension function
+// in addition to the ones given below, specifically for the unconditional
 // branch instruction, which has an 11-bit immediate field
 unsigned int signExtend16to32ui(short i) {
   return static_cast<unsigned int>(static_cast<int>(i));
@@ -89,7 +89,7 @@ void setCarryOverflow (int num1, int num2, OFType oftype) {
   }
 }
 
-// CPE E15: You're given the code for evaluating BEQ, and you'll need to 
+// CPE 315: You're given the code for evaluating BEQ, and you'll need to 
 // complete the rest of these conditions. See Page 99 of the armv6 manual
 static int checkCondition(unsigned short cond) {
   switch(cond) {
@@ -136,6 +136,7 @@ void execute() {
   Data16 instr2;
   Data32 temp(0); // Use this for STRB instructions
   Thumb_Types itype;
+  // the following counts as a read to PC
   unsigned int pctarget = PC + 2;
   unsigned int addr;
   int i, n, offset;
@@ -178,35 +179,33 @@ void execute() {
       switch(add_ops) {
         case ALU_LSLI:
           break;
-        case ALU_LSRI:
-          break;
-        case ALU_ASRI:
-          break;
         case ALU_ADDR:
-          // functionally complete
+          // needs stats and flags
           rf.write(alu.instr.addr.rd, rf[alu.instr.addr.rn] + rf[alu.instr.addr.rm]);
           break;
         case ALU_SUBR:
           break;
         case ALU_ADD3I:
-          // functionally complete
+          // needs stats and flags
           rf.write(alu.instr.add3i.rd, rf[alu.instr.add3i.rn] + alu.instr.add3i.imm);
           break;
         case ALU_SUB3I:
           break;
         case ALU_MOV:
-          // functionally complete
+          // needs stats and flags
           rf.write(alu.instr.mov.rdn, alu.instr.mov.imm);
           break;
         case ALU_CMP:
           break;
         case ALU_ADD8I:
-          // functionally complete
+          // needs stats and flags
           rf.write(alu.instr.add8i.rdn, rf[alu.instr.add8i.rdn] + alu.instr.add8i.imm);
           break;
         case ALU_SUB8I:
           break;
         default:
+          cout << "instruction not implemented" << endl;
+          exit(1);
           break;
       }
       break;
@@ -242,19 +241,23 @@ void execute() {
       }
       break;
     case DP:
-      decode(dp);
+      dp_ops = decode(dp);
+      switch(dp_ops) {
+        case DP_CMP:
+          // need to implement
+          break;
+      }
       break;
     case SPECIAL:
       sp_ops = decode(sp);
       switch(sp_ops) {
         case SP_MOV:
-          // functionally complete
-          if (sp.instr.mov.d) {
-            rf.write(SP_REG, rf[sp.instr.mov.rm]);
-          }
-          else {
-            rf.write(sp.instr.mov.rd, rf[sp.instr.mov.rm]);
-          }
+          // needs stats and flags
+          rf.write((sp.instr.mov.d << 3 ) | sp.instr.mov.rd, rf[sp.instr.mov.rm]);
+          break;
+        case SP_ADD:
+        case SP_CMP:
+          // need to implement these
           break;
       }
       break;
@@ -302,7 +305,7 @@ void execute() {
       break;
     case UNCOND:
       // Essentially the same as the conditional branches, but with no
-      // condition check, and a different sized immediate field
+      // condition check, and an 11-bit immediate field
       decode(uncond);
       break;
     case LDM:
@@ -333,7 +336,7 @@ void execute() {
       stats.numMemReads++;
       break;
     case ADD_SP:
-      // functionally complete
+      // needs stats
       decode(addsp);
       rf.write(addsp.instr.add.rd, SP + (addsp.instr.add.imm*4));
       break;
