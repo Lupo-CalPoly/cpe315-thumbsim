@@ -90,7 +90,7 @@ void setCarryOverflow (int num1, int num2, OFType oftype) {
 }
 
 // CPE 315: You're given the code for evaluating BEQ, and you'll need to 
-// complete the rest of these conditions. See Page 99 of the armv6 manual
+// complete the rest of these conditions. See Page 208 of the armv7 manual
 static int checkCondition(unsigned short cond) {
   switch(cond) {
     case EQ:
@@ -145,6 +145,7 @@ void execute() {
   unsigned int bit;
 
   /* Convert instruction to correct type */
+  /* Types are described in Section A5 of the armv7 manual */
   BL_Type blupper(instr);
   ALU_Type alu(instr);
   SP_Type sp(instr);
@@ -267,14 +268,32 @@ void execute() {
       ldst_ops = decode(ld_st);
       switch(ldst_ops) {
         case STRI:
-          // functionally complete
+          // functionally complete, needs stats
           addr = rf[ld_st.instr.ld_st_imm.rn] + ld_st.instr.ld_st_imm.imm * 4;
           dmem.write(addr, rf[ld_st.instr.ld_st_imm.rt]);
           break;
         case LDRI:
-          // functionally complete
+          // functionally complete, needs stats
           addr = rf[ld_st.instr.ld_st_imm.rn] + ld_st.instr.ld_st_imm.imm * 4;
           rf.write(ld_st.instr.ld_st_imm.rt, dmem[addr]);
+          break;
+        case STRR:
+          // need to implement
+          break;
+        case LDRR:
+          // need to implement
+          break;
+        case STRBI:
+          // need to implement
+          break;
+        case LDRBI:
+          // need to implement
+          break;
+        case STRBR:
+          // need to implement
+          break;
+        case LDRBR:
+          // need to implement
           break;
       }
       break;
@@ -282,15 +301,17 @@ void execute() {
       misc_ops = decode(misc);
       switch(misc_ops) {
         case MISC_PUSH:
+          // need to implement
           break;
         case MISC_POP:
+          // need to implement
           break;
         case MISC_SUB:
-          // functionally complete
+          // functionally complete, needs stats
           rf.write(SP_REG, SP - (misc.instr.sub.imm*4));
           break;
         case MISC_ADD:
-          // functionally complete
+          // functionally complete, needs stats
           rf.write(SP_REG, SP + (misc.instr.add.imm*4));
           break;
       }
@@ -299,6 +320,7 @@ void execute() {
       decode(cond);
       // Once you've completed the checkCondition function,
       // this should work for all your conditional branches.
+      // needs stats
       if (checkCondition(cond.instr.b.cond)){
         rf.write(PC_REG, PC + 2 * signExtend8to32ui(cond.instr.b.imm) + 2);
       }
@@ -310,9 +332,11 @@ void execute() {
       break;
     case LDM:
       decode(ldm);
+      // need to implement
       break;
     case STM:
       decode(stm);
+      // need to implement
       break;
     case LDRL:
       // This instruction is complete, nothing needed
