@@ -44,12 +44,12 @@ instructions that you must support:
   * lsl (immediate)
   * neg.
 
-Particularly are the byte memory operations. The C++ implementation of the 
-simulator only reads and writes memory on a word granularity (4 bytes at a 
+The byte memory operations are particularly tricky. The C++ implementation of 
+the simulator only reads and writes memory on a word granularity (4 bytes at a 
 time), so make sure you work within that constraint.
 
 ### Your tasks are as follows:
-Complete the simulator so it successfully runs the Shang benchmark 
+Complete the simulator so it successfully runs the fib and Shang benchmarks
 (details below). The simulator, as provided, implements only a handful of 
 instructions. You need to add support for other instructions.
 
