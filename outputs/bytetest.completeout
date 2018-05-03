@@ -1,0 +1,78 @@
+Starting at PC 83ec
+push {r7, lr}
+bl 0x0
+push {r7, lr}
+mov r7, sp
+movs r0, #65
+strb r0, [r7, #0]
+subs r7, #1
+movs r0, #66
+strb r0, [r7, #0]
+subs r7, #1
+movs r0, #67
+strb r0, [r7, #0]
+subs r7, #1
+movs r0, #68
+strb r0, [r7, #0]
+subs r7, #1
+sub sp, #4
+adds r7, #3
+ldrb r0, [r7, #0]
+add sp, #4
+pop {r7, pc}
+pop {r7, pc}
+DATA:
+ffffffec: 444342
+fffffff0: 41000000
+fffffff4: 83f2
+849c: a0000
+1049c: 83b8
+104a0: 8390
+104c4: 1049c
+104d4: 10000
+104e0: 6ffffef5
+104ec: 81f0
+104f4: 81b0
+10514: 10590
+10548: 6ffffffe
+10550: 6fffffff
+10558: 6ffffff0
+10560: a0000
+10590: 10000
+10594: a0000
+RF:
+42
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+83f2
+0
+Total number of dynamic instructions: 22
+Number of Memory Reads: 5
+Number of Memory Writes: 8
+Number of Register Reads: 48
+Number of Register Writes: 45
+Branches: 
+  Forward:
+    Taken: 0
+    Not taken: 0
+  Backward:
+    Taken: 0
+    Not taken: 0
+256 byte cache (blocksize 4 bytes): 8 hits, 5 misses (hit rate: 61.5385%)
+256 byte cache (blocksize 8 bytes): 10 hits, 3 misses (hit rate: 76.9231%)
+256 byte cache (blocksize 16 bytes): 11 hits, 2 misses (hit rate: 84.6154%)
+256 byte cache (blocksize 32 bytes): 12 hits, 1 misses (hit rate: 92.3077%)
+256 byte cache (blocksize 64 bytes): 12 hits, 1 misses (hit rate: 92.3077%)
+256 byte cache (blocksize 128 bytes): 12 hits, 1 misses (hit rate: 92.3077%)
+256 byte cache (blocksize 256 bytes): 12 hits, 1 misses (hit rate: 92.3077%)
