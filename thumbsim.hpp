@@ -633,6 +633,7 @@ class Register {
       operator unsigned int() const { return d.data_uint(); }
       Register & operator=(unsigned int val) {
          write(val);
+         return *this;
       }
 };
 

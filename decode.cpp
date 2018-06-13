@@ -127,7 +127,8 @@ ALU_Ops decode (const ALU_Type data) {
     }
     return ALU_MOV;
   }
-
+  cout << "[ERROR] Unknown Instruction to be decoded" << endl;
+  exit(1);
 }
 
 DP_Ops decode (const DP_Type data) {
@@ -243,6 +244,8 @@ LD_ST_Ops decode (const LD_ST_Type data) {
       }
     }
   }
+  cout << "[ERROR] Unknown Instruction to be decoded" << endl;
+  exit(1);
 }
 
 MISC_Ops decode (const MISC_Type data) {
@@ -391,7 +394,8 @@ MISC_Ops decode (const MISC_Type data) {
     }
     return MISC_ADD;
   }
-
+  cout << "[ERROR] Unknown Instruction to be decoded" << endl;
+  exit(1);
 }
 
 int decode (const COND_Type data) {
@@ -401,6 +405,7 @@ int decode (const COND_Type data) {
     printCond(data.instr.b.cond);
     cout << " 0x" << hex << rf[15] + 2*(int)((char)(data.instr.b.imm))+2 << endl;
   }
+  return COND;
 }
 
 int decode (const UNCOND_Type data) {
@@ -408,6 +413,7 @@ int decode (const UNCOND_Type data) {
   if (opts.instrs) { 
     cout << "b 0x" << hex << rf[15] + 2*(int)((char)(data.instr.b.imm))+2 << endl;
   }
+  return UNCOND;
 }
 
 BL_Ops decode (const BL_Type data) {
@@ -438,4 +444,5 @@ int decode (const ADD_SP_Type data) {
   if (opts.instrs) { 
     cout << "add r" << data.instr.add.rd << ", sp, #" << data.instr.add.imm*4 << endl;
   }
+  return ADD_SP;
 }
