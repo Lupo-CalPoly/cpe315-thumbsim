@@ -257,6 +257,7 @@ void execute() {
           rf.write((sp.instr.mov.d << 3 ) | sp.instr.mov.rd, rf[sp.instr.mov.rm]);
           break;
         case SP_ADD:
+          break;
         case SP_CMP:
           // need to implement these
           break;
@@ -284,7 +285,10 @@ void execute() {
           // need to implement
           break;
         case STRBI:
-          // need to implement
+          addr = rf[ld_st.instr.ld_st_imm.rn] + ld_st.instr.ld_st_imm.imm;
+          temp = dmem[addr];
+          temp.set_data_ubyte4(0, rf[ld_st.instr.ld_st_imm.rt]&0xFF);
+          dmem.write(addr, temp);
           break;
         case LDRBI:
           // need to implement
