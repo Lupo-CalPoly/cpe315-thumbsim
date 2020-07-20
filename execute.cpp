@@ -54,8 +54,8 @@ void setCarryOverflow (int num1, int num2, OFType oftype) {
       if (num1 >= num2) {
         flags.C = 1;
       }
-      else if (((unsigned long long int)num1 - (unsigned long long int)num2) ==
-          ((unsigned int)num1 - (unsigned int)num2)) {
+      else if ((long long int)((unsigned long long int)num1 - (unsigned long long int)num2) ==
+          (int)((unsigned int)num1 - (unsigned int)num2)) {
         flags.C = 0;
       }
       else {
