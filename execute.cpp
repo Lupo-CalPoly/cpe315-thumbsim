@@ -285,6 +285,7 @@ void execute() {
           // need to implement
           break;
         case STRBI:
+          // functionally complete, needs stats
           addr = rf[ld_st.instr.ld_st_imm.rn] + ld_st.instr.ld_st_imm.imm;
           temp = dmem[addr];
           temp.set_data_ubyte4(0, rf[ld_st.instr.ld_st_imm.rt]&0xFF);
