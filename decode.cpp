@@ -403,6 +403,8 @@ int decode (const COND_Type data) {
   if (opts.instrs) { 
     cout << "b";
     printCond(data.instr.b.cond);
+    // consider calling your sign extension function here to get the 
+    // printout to be consistent
     cout << " 0x" << hex << rf[15] + 2*(int)((char)(data.instr.b.imm))+2 << endl;
   }
   return COND;
@@ -411,6 +413,8 @@ int decode (const COND_Type data) {
 int decode (const UNCOND_Type data) {
   // complete
   if (opts.instrs) { 
+    // consider calling your sign extension function here to get the 
+    // printout to be consistent
     cout << "b 0x" << hex << rf[15] + 2*(int)((char)(data.instr.b.imm))+2 << endl;
   }
   return UNCOND;
